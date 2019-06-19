@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
 	"unicode"
@@ -15,6 +16,9 @@ import (
 
 func init() {
 	raymond.RegisterHelpers(funcs)
+	raymond.RegisterHelper("env", func(val1 string) string {
+		return os.Getenv(val1)
+	})
 }
 
 // Render parses and executes a template, returning the results in string format.
