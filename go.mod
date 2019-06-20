@@ -1,4 +1,4 @@
-module github.com/appleboy/drone-facebook
+module github.com/alikhil/drone-facebook
 
 go 1.12
 
