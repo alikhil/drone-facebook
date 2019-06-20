@@ -165,4 +165,9 @@ func TestRender(t *testing.T) {
 	res, err = RenderTrim("{{env 'KEK'}}", plugin)
 	assert.Nil(t, err)
 	assert.Equal(t, val, res)
+
+	os.Setenv("KEK", val)
+	res, err = RenderTrim("hello - {{env 'KEK'}}", plugin)
+	assert.Nil(t, err)
+	assert.Equal(t, "hello - value", res)
 }
