@@ -17,6 +17,7 @@ import (
 func init() {
 	raymond.RegisterHelpers(funcs)
 	raymond.RegisterHelper("env", func(val1 string) string {
+		val1 = strings.Replace(val1, "\\_", "_", -1)
 		fmt.Printf("\nDEBUG: trying to get %v var; but GetEnv = %v - \n", val1, os.Getenv(val1))
 		return os.Getenv(val1)
 	})
